@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/3591f6ace4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="./stylesheets/home.css">
+    <style>
+        .glass-l {
+            background: rgba(255, 255, 255, 0.15);
+            /* light transparency */
+            border-radius: 1px;
+            backdrop-filter: blur(20px);
+            /* the magic */
+            -webkit-backdrop-filter: blur(20px);
+            /* for Safari */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            /* subtle border */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .post:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="">
+    <div class="w-full min-h-screen bg-zinc-800">
+        <div class="w-full fixed top-0 left-0 z-50 glass-l flex items-center justify-between px-10 py-4 ">
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-user-group text-2xl text-zinc-200 custom-icon"></i>
+                    <h1 class="text-3xl text-white ">Socico</h1>
+                </div>
+                <a href="/profile" class="relative">
+                    <i class="fa-regular fa-circle-user text-4xl text-zinc-200 "></i>
+                </a>
+            </div>
+            <div class="icon w-full flex justify-evenly items-center">
+                <a href="/home" class="relative">
+                    <i class="fa-solid fa-house text-2xl text-zinc-200 "></i>
+                </a>
+                <a href="/friends" class="relative">
+                    <i class="fa-solid fa-user-group text-2xl text-zinc-200 custom-icon"></i>
+                </a>
+            </div>
+            <div><a href="/logout" class="text-2xl text-white bg-red-500 px-2 py-1 rounded-lg">Logout</a></div>
+        </div>
+
+        <!-- body -->
+        <div class="max-w-4xl min-h-screen px-2 py-20 bg-zinc-900 m-auto ">
+            <div class="max-w-full mt-1 bg-zinc-800 rounded-lg py-3">
+                <div class="flex gap-2 items-center px-3">
+                    <div class="w-16 h-16 rounded-full overflow-hidden">
+                        <img class="w-full h-full object-cover" src="/images/assets/<%= user.profilepic %>" alt="">
+                    </div>
+                    <div class="mt-2 mb-3 ml-3">
+                        <h1 class="text-xl text-white">Hey, <%=user.username%> Post a Photo 🚴‍♀️ </h1>
+                    </div>
+                </div>
+                <div class=" max-w-xl px-4 py-2 text-white border border-2 border-zinc-800  rounded-md mb-1 flex ">
+                    <!-- form sec -->
+                    <div class="w-full">
+                        <form action="/upload/photo" method="post" enctype="multipart/form-data">
+                            <textarea
+                                class="w-[100%] mb-2 block resize-none bg-transparent border-2 border-zinc-700 rounded-md outline-none p-3"
+                                placeholder="Add a content with photo..." name="content" id=""></textarea>
+                            <div class="flex gap-2 flex-wrap">
+                                <input type="text" id="file-name" readonly placeholder="File not choosen" class="border border-zinc-900 bg-zinc-700 outline-none rounded-lg px-5">
+                                <input type="file" name="avatar" id="pics" class="hidden" accept="image/*,video/*">
+                                <label for="pics"
+                                    class="post flex items-center justify-between gap-2 px-7 py-2 rounded-lg bg-green-500 mt-1 text-white">
+                                    Photos/Video
+                                    <i class="fa-regular fa-images text-2xl"></i>
+                                </label>
+
+
+                                <button type="submit"
+                                    class="flex items-center justify-between gap-2 px-7 py-2 rounded-lg bg-blue-500 mt-1 text-white">
+                                    Post
+                                    <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <!-- posts -->
+
+
+
+
+        </div>
+    </div>
+    <script>
+        document.getElementById('pics').addEventListener('change', function () {
+    if (this.files.length > 0) {
+        document.getElementById('file-name').value = this.files[0].name;
+    } else {
+        document.getElementById('file-name').value = '';
+    }
+});
+    </script>
+</body>
+
+</html>

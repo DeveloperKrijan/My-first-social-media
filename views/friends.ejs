@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/3591f6ace4.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <link rel="stylesheet" href="../stylesheets/friends.css">
+
+<body>
+  <div class="w-full min-h-screen bg-zinc-800">
+   <div
+      class="w-full fixed top-0 left-0 z-50 glass-l flex items-center justify-between px-10 py-5">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-user-group text-2xl text-zinc-200 custom-icon"></i>
+        <h1 class="text-3xl text-white ">Socico</h1>
+      </div>
+      <div class="icon w-full flex justify-evenly items-center">
+        <a href="/home" class="relative">
+          <i class="fa-solid fa-house text-2xl text-zinc-200 "></i>
+        </a>
+        <a href="/friends" class="relative">
+          <i class="fa-solid fa-user-group text-2xl text-zinc-200 custom-icon"></i>
+        </a>
+      </div>
+      <div><a href="/logout" class="text-2xl text-white bg-red-500 px-2 py-1 rounded-lg">Logout</a></div>
+    </div>
+    <div class="max-w-4xl h-screen p-3 py-20 bg-zinc-900 m-auto">
+      <h1 class="text-zinc-400 mb-5 text-xl">People you may know...</h1>
+      <% user.reverse().forEach(function(u) { %>
+  <div class="bg-zinc-800 px-4 py-3 text-white mb-2 rounded-md">
+    <div class="flex items-center justify-between">
+    <div class="flex gap-2 items-center">
+    <div class="w-10 h-10 rounded-full overflow-hidden">
+                <img class="w-full h-full object-cover" src=" /images/assets/<%= u.profilepic %>" alt="">
+              </div>
+              <div>
+    <h4><%= u.username %></h4>
+    <p><%= u.email %></p>
+    </div>
+    </div>
+    <div class="flex gap-1 items-center bg-blue-500 px-5 py-2 rounded-2xl">
+      <i class="fa-regular fa-plus"></i>
+      <a href="">Add</a>
+    </div>
+    </div>
+  </div>
+<% }) %>
+</div>
+    </div>
+  </div>
+</body>
+</html>

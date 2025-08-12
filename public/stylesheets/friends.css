@@ -1,0 +1,53 @@
+.glass-l {
+  background: rgba(255, 255, 255, 0.15); /* light transparency */
+  border-radius: 1px;
+  backdrop-filter: blur(20px); /* the magic */
+  -webkit-backdrop-filter: blur(20px); /* for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+.fa-user-group::after{
+  content: "";
+  opacity: 0;
+  background-color: rgba(250, 250, 250, 0);
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  transform: translate(-50%,-50%) translateY(50%) ;
+  transition: all 0.7s ease;
+  
+}
+.fa-user-group:hover::after{
+  content: "Users";
+opacity: 100%;
+  background-color: rgba(250, 250, 250, 0);
+  position: absolute;
+  top: 100%;
+  left: 10px;
+   letter-spacing: 5px;
+  transform: translate(-50%,-50%) translateY(50%);
+  
+}
+
+.fa-house::after{
+  content: "";
+  opacity: 0;
+  background-color: rgba(250, 250, 250, 0);
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  transform: translate(-50%,-50%) translateY(50%) ;
+  transition: all 0.7s ease;
+  
+}
+.fa-house:hover::after{
+  content: "Home";
+opacity: 100%;
+  background-color: rgba(250, 250, 250, 0);
+  position: absolute;
+  top: 100%;
+  left: 10px;
+   letter-spacing: 5px;
+  transform: translate(-50%,-50%) translateY(50%);
+  
+}

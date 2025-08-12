@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <script src="https://kit.fontawesome.com/3591f6ace4.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .glass-l {
+  background: rgba(255, 255, 255, 0.15); /* light transparency */
+  border-radius: 1px;
+  backdrop-filter: blur(20px); /* the magic */
+  -webkit-backdrop-filter: blur(20px); /* for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+    </style>
+</head>
+
+<body class="h-screen w-full  ">
+    <div class="h-screen w-full bg-zinc-900 flex justify-center items-center py-1 px-2 ">
+        <div class="w-full min-h-screen bg-zinc-900">
+    <div class="w-full fixed top-0 left-0 z-50 glass-l flex items-center justify-between px-10 py-5">
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-2"> 
+        <i class="fa-solid fa-user-group text-2xl text-zinc-200 custom-icon"></i>
+        <h1 class="text-3xl text-white ">Socico</h1>
+        </div>
+        <a href="/profile" class="relative">
+          <i class="fa-regular fa-circle-user text-4xl text-zinc-200 "></i>
+        </a>
+      </div>
+      <div class="icon w-full flex justify-evenly items-center">
+        <a href="/home" class="relative">
+          <i class="fa-solid fa-house text-2xl text-zinc-200 "></i>
+        </a>
+        <a href="/friends" class="relative">
+          <i class="fa-solid fa-user-group text-2xl text-zinc-200 custom-icon"></i>
+        </a>
+      </div>
+      <div><a href="/logout" class="text-2xl text-white bg-red-500 px-2 py-1 rounded-lg">Logout</a></div>
+    </div>
+    <!-- sdfgsg -->
+    <div class="w-full h-full  border-2 border-zinc-800 rounded-lg flex items-center flex-col py-4 px-2 mt-20">
+        <div class="text-white text-3xl mb-4">
+            <h1>Upload a profile picture</h1>
+        </div>
+        <div class="w-48 h-48  rounded-full overflow-hidden">
+                                <img class="w-full h-full object-cover mr-3" src="/images/assets/<%= user.profilepic %>" alt="">
+                            </div>
+        <div class="">
+            <h4 class="text-white text-3xl"><%=user.username%></h4>
+        </div>
+        <div class="mt-4">
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" id="fileInput" class="hidden" name="avatar">
+            <label for="fileInput" class="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
+                Choose File
+            </label>
+
+            <input class="px-5 py-2 bg-yellow-600 rounded-lg mx-2" type="submit" value="Upload profile">
+        </form>
+        </div>
+        <div class="my-10 px-6 py-2 bg-green-500 text-xl text-white rounded-lg">
+            <div class="flex items-center  gap-3">
+            <a href="/home" class="">Go back to home</a>
+            <i class="fa-solid fa-arrow-right text-2xl text-white"></i>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
