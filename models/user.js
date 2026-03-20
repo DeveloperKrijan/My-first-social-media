@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { none } = require('../config/multerconfig');
 
 const connectdb = async function () {
-    await mongoose.connect('mongodb+srv://krijan:123456%40@my-first-db.7shkhmk.mongodb.net/fb-project')
+    await mongoose.connect('mongodb+srv://krijan:823gGdFV6CiqOGlx@my-first-db.7shkhmk.mongodb.net/fb-project')
     console.log("Db connected 🐱‍🏍");
 }
 
